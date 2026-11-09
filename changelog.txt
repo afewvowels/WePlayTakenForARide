@@ -1,0 +1,8 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2026-11-06
+  Features:
+    - Trains pick up players they hit instead of killing them, using the nearest empty car.
+    - If the train is full, the player is bumped safely off the tracks instead.
+    - Map setting to always dodge instead of being picked up.
+    - Per-player setting to toggle the flying text message.

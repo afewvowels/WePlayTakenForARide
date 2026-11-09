@@ -1,0 +1,9 @@
+{
+  "name": "WePlayTakenForARide",
+  "version": "0.1.0",
+  "title": "WePlay: Taken for a Ride — Train Collision Avoidance",
+  "author": "afewvowels",
+  "factorio_version": "2.1",
+  "dependencies": ["base"],
+  "description": "Trains pick you up instead of running you over. Get hit by a train and you're scooped into the nearest empty seat and taken along for the ride. If every seat is full, you're bumped safely off the tracks instead."
+}
