@@ -13,5 +13,12 @@ data:extend({
     setting_type = "runtime-per-user",
     default_value = true,
     order = "b"
+  },
+  {
+    type = "bool-setting",
+    name = "wp-tfar-horn",
+    setting_type = "runtime-per-user",
+    default_value = true,
+    order = "c"
   }
 })

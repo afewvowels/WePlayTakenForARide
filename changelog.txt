@@ -1,6 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2026-11-12
+  Features:
+    - The train toots its horn twice when it picks you up or bumps you aside.
+    - Per-player setting to turn the horn off.
+  Changes:
+    - Requires base 2.1 or newer.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2026-11-06
+  Major Features:
+    - Initial release.
   Features:
     - Trains pick up players they hit instead of killing them, using the nearest empty car.
     - If the train is full, the player is bumped safely off the tracks instead.

@@ -9,6 +9,24 @@ local ROLLING_STOCK = {
 }
 
 local DODGE_DISTANCE = 3
+local HORN_COOLDOWN = 180 -- ticks (3 seconds) between honks from the same train
+
+-- Toot toot! Plays for every nearby player who has the horn turned on.
+local function honk(car)
+  local train = car.train
+  local id = train and train.valid and train.id or car.unit_number
+  storage.last_honk = storage.last_honk or {}
+  local last = storage.last_honk[id]
+  if last and game.tick - last < HORN_COOLDOWN then return end
+  storage.last_honk[id] = game.tick
+
+  local surface = car.surface
+  for _, player in pairs(game.connected_players) do
+    if player.surface == surface and settings.get_player_settings(player)["wp-tfar-horn"].value then
+      player.play_sound{path = "wp-tfar-horn", position = car.position}
+    end
+  end
+end
 
 local function dist2(a, b)
   local dx, dy = a.x - b.x, a.y - b.y
@@ -82,12 +100,14 @@ local function on_damaged(event)
     local car = find_empty_car(cause, character)
     if car then
       car.set_driver(character)
+      honk(cause)
       notify(character, "wp-tfar.picked-up")
       return
     end
   end
 
   dodge(cause, character)
+  honk(cause)
   notify(character, "wp-tfar.dodged")
 end
 
